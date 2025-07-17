@@ -36,6 +36,9 @@ function PortfolioViewer() {
     );
   }
 
+  const imageUrl = `${process.env.REACT_APP_API_BASE_URL}/api/portfolio/${portfolio.id}/image`;
+  const resumeUrl = `${process.env.REACT_APP_API_BASE_URL}/api/portfolio/${portfolio.id}/resume`;
+
   return (
     <div className="portfolio-main-div">
       <div className="portfolio-card">
@@ -50,7 +53,7 @@ function PortfolioViewer() {
         <div className="portfolio-card-details">
           <img
             className="portfolio-image"
-            src={`http://localhost:5050/api/portfolio/${portfolio.id}/image`}
+            src={imageUrl}
             alt={portfolio.title}
           />
 
@@ -63,7 +66,7 @@ function PortfolioViewer() {
           <Button
             variant="contained"
             className="download-button"
-            href={`http://localhost:5050/api/portfolio/${portfolio.id}/resume`}
+            href={resumeUrl}
             download="resume.pdf"
           >
             Download Resume
