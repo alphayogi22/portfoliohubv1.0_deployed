@@ -1,0 +1,35 @@
+name: Validate Backend (.NET Core 8)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  build:
+    name: 🔧 Validate .NET Backend Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🛠 Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: 🔍 Restore Dependencies
+        working-directory: backend
+        run: dotnet restore
+
+      - name: 🧪 Build Project
+        working-directory: backend
+        run: dotnet build --configuration Release
+
+      # Optional: Add test step if needed
+      # - name: 🧪 Run Unit Tests
+      #   working-directory: backend
+      #   run: dotnet test

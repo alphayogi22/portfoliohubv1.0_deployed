@@ -25,11 +25,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp", policy =>
     {
         policy.WithOrigins(
-            "http://localhost:3000",
-            "http://localhost:3001",
-            "http://localhost:5050",
-            "http://localhost:5173",
-            "http://localhost:8080",
+            "https://portfolio-hub-frontend.vercel.app",
             "https://portfoliohub.vercel.app" 
         )
         .AllowAnyMethod()
