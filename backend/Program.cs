@@ -25,14 +25,12 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp", policy =>
     {
         policy.WithOrigins(
-            "https://portfolio-hub-frontend.vercel.app",
-            "https://portfoliohubv1-0-backend.onrender.com" 
+            "https://portfoliohubv1-0-frontend.vercel.app"  // ✅ Correct frontend URL
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
     });
 });
-
 // Configure Kestrel to listen on port 80 (for Docker/Render)
 builder.WebHost.ConfigureKestrel(options =>
 {
