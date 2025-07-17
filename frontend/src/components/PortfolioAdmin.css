@@ -1,0 +1,46 @@
+/* PortfolioAdmin.css */
+
+.admin-container {
+    background-image: url('../images/backgroun3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #e3f2fd;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+  }
+  
+  .admin-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .admin-title {
+    font-size: 40px !important;
+    font-weight: bold;
+    color: #1976d2;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .admin-input {
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  .upload-button {
+    margin-top: 30px !important;
+    background-color: #1976d2;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-transform: none;
+  }
+  

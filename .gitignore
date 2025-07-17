@@ -1,0 +1,54 @@
+# ----------------
+# Root Git Ignore
+# ----------------
+node_modules/
+dist/
+.env
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+npm-debug.log*
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ----------------
+# Frontend (React)
+# ----------------
+frontend/build/
+frontend/node_modules/
+frontend/.env
+
+# ----------------
+# Backend (.NET)
+# ----------------
+backend/bin/
+backend/obj/
+backend/.vs/
+backend/*.user
+backend/*.db
+backend/*.suo
+backend/*.cache
+backend/*.log
+backend/*.sqlite
+
+# Ignore Rider files
+backend/.idea/
+
+# Ignore local launch configs
+backend/Properties/launchSettings.json
+
+# ----------------
+# Misc
+# ----------------
+*.swp
+*.bak
+*.tmp
+*.orig
