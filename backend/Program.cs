@@ -11,8 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure MongoDB
-var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDb");
+// Configure MongoDB with environment variable fallback
+var mongoConnectionString = Environment.GetEnvironmentVariable("MONGO_CONNECTION_STRING")
+                           ?? builder.Configuration.GetConnectionString("MongoDb");
+
 var mongoClient = new MongoClient(mongoConnectionString);
 var mongoDatabase = mongoClient.GetDatabase("PortfolioDb");
 builder.Services.AddSingleton(mongoDatabase);
@@ -20,17 +22,25 @@ builder.Services.AddSingleton(mongoDatabase);
 // Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp", builder =>
+    options.AddPolicy("AllowReactApp", policy =>
     {
-        builder.WithOrigins("http://localhost:3001", "http://localhost:8080", "http://localhost:3000", "http://localhost:5173", "http://localhost:5050")
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+        policy.WithOrigins(
+            "http://localhost:3000",
+            "http://localhost:3001",
+            "http://localhost:5050",
+            "http://localhost:5173",
+            "http://localhost:8080",
+            "https://portfoliohub.vercel.app" 
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader();
     });
 });
 
+// Configure Kestrel to listen on port 80 (for Docker/Render)
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(80); // Use port 80 inside Docker
+    options.ListenAnyIP(80); // Use port 80 inside Docker container
 });
 
 var app = builder.Build();
