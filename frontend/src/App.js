@@ -1,4 +1,3 @@
-import Portfolio from './components/Portfolio';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PortfolioAdmin from './components/PortfolioAdmin';      // Upload Form
 import PortfolioViewer from './components//PortfolioViewer'; 
