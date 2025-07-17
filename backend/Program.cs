@@ -26,7 +26,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
             "https://portfolio-hub-frontend.vercel.app",
-            "https://portfoliohub.vercel.app" 
+            "https://portfoliohubv1-0-backend.onrender.com" 
         )
         .AllowAnyMethod()
         .AllowAnyHeader();
